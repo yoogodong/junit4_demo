@@ -24,6 +24,22 @@ public class RuleDemoTest {
         }
     };
 
+    @ClassRule
+    public static TestRule aroundClass = new TestRule() {
+        @Override
+        public Statement apply(Statement base, Description description) {
+            return new Statement() {
+                @Override
+                public void evaluate() throws Throwable {
+                    System.out.println("before class rule ");
+                    base.evaluate();
+                    ;
+                    System.out.println("after class rule");
+                }
+            };
+        }
+    };
+
     @Test
     public void test1() {
         System.out.println("test1");
