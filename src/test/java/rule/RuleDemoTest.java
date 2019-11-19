@@ -16,9 +16,9 @@ public class RuleDemoTest {
                 /*如同一个 Around Adviser, 可以决定测试要不要执行*/
                 @Override
                 public void evaluate() throws Throwable {
-                    System.out.println("<<<<<<<");
+                    System.out.println("before rule");
                     base.evaluate();// 调用@Before + 测试方法 + @After
-                    System.out.println(">>>>>>>>");
+                    System.out.println("after rule");
                 }
             };
         }
@@ -33,7 +33,6 @@ public class RuleDemoTest {
                 public void evaluate() throws Throwable {
                     System.out.println("before class rule ");
                     base.evaluate();
-                    ;
                     System.out.println("after class rule");
                 }
             };
